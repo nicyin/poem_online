@@ -21,7 +21,7 @@ body {
   
   /* hidden by default */
   .poem {
-    position: fixed; /* allows global positioning */
+    position: fixed;
     background: none;
     color: #3a3a3a;
     padding: 6px 10px;
