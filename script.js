@@ -1,0 +1,49 @@
+$(function () {
+    //Load divs in random positions//
+
+    const padding = 100; // prevent shapes from hugging edges
+    const maxX = $(window).width() - padding;
+    const maxY = $(window).height() - padding;
+
+    $('.shape-container').each(function () {
+      const randX = Math.floor(Math.random() * maxX);
+      const randY = Math.floor(Math.random() * maxY);
+
+      $(this).css({
+        left: randX + 'px',
+        top: randY + 'px'
+      });
+    });
+
+    //Reveal hidden poem//
+
+    $('.shape-container').each(function () {
+      const $container = $(this);
+      const $shape = $container.find('.shape');
+      const $poem = $container.find('.poem');
+
+      $shape.on('mouseenter', function () {
+        $poem.css('opacity', 1);
+      });
+
+      $shape.on('mousemove', function (e) {
+        const offsetX = 15;
+        const offsetY = 15;
+        $poem.css({
+          left: e.clientX + offsetX + 'px',
+          top: e.clientY + offsetY + 'px'
+        });
+      });
+
+      $shape.on('mouseleave', function () {
+        $poem.css('opacity', 0);
+      });
+    });
+
+    $('.shape-container').draggable();
+
+    $('.shape').on('mouseenter', function () {
+        const poemText = $(this).siblings('.poem').text();
+        console.log(poemText);
+      });
+  });

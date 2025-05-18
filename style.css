@@ -1,0 +1,33 @@
+body {
+    font-family: "Xanh Mono", monospace;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.5em;
+    background-color: #f4f4f4;
+    position: relative;
+}
+  
+  .shape-container {
+    position: absolute;
+    margin: 0;
+  }
+  
+  .shape {
+    width: auto;
+    height: auto;
+    background: none;
+    cursor: crosshair;
+  }
+  
+  /* hidden by default */
+  .poem {
+    position: fixed; /* allows global positioning */
+    background: none;
+    color: #3a3a3a;
+    padding: 6px 10px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 1000;
+  }
